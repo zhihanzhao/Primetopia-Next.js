@@ -17,6 +17,8 @@ const handler = NextAuth({
     async signIn({ profile }){
         try {
             await connectToDB();
+            //verify the User 
+            //Create a user 
 
         } catch (error) {
             console.log(error);
