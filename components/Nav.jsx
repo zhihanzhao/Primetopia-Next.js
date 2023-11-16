@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -13,14 +12,6 @@ const Nav = () => {
     const [providers,setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
 
-    // useEffect(() => {
-    //     const setUpProviders = async () => {
-    //         const response = await getProviders();
-    //         console.log("Get providers: ",response);
-    //         setProviders(response);
-    //     }
-    //     setUpProviders();
-    // },[])
 
     useEffect(() => {
         (async () => {
@@ -45,12 +36,12 @@ const Nav = () => {
         </Link>
         {/* Desktop Navigation */}
         <div className="sm:flex hidden">
-            {session ? 
+            {session?.user ? 
             (<div className="flex gap-3 md:gap-5">
                 <Link href='/create-prompt' className="black_btn">Create Post</Link>
                 <button onClick={signOut} className="outline_btn">Sign Out</button>
                 <Link href='/profile'>
-                    <Image  src='/assets/images/logo.svg'
+                    <Image  src={session?.user.image}
                             alt = 'profile'
                             width = {37}
                             height = {37}
@@ -73,10 +64,10 @@ const Nav = () => {
         </div>
         {/* Mobile Navigation */}
         <div className="sm:hidden flex relative">
-            {session ? 
+            {session?.user ? 
             (<div className="flex gap-3 md:gap-5">
                 <div className="flex">
-                    <Image  src='/assets/images/logo.svg'
+                    <Image  src={session?.user.image}
                             alt = 'profile'
                             width = {37}
                             height = {37}
