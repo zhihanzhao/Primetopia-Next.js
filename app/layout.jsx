@@ -1,6 +1,9 @@
 import '@styles/globals.css';
-import Home from './page';
+
 import Nav from '../components/Nav';
+import Provider from "@components/Provider";
+
+
 
 export const metadata = {
     title: "Primetopia",
@@ -10,6 +13,7 @@ export const metadata = {
   const RootLayout = ({ children }) => (
     <html lang='en'>
       <body>
+      <Provider>
           <div className='main'>
             <div className='gradient' />
           </div>
@@ -17,6 +21,7 @@ export const metadata = {
             <Nav />
             {children}
           </main>
+        </Provider>
       </body>
     </html>
   );
