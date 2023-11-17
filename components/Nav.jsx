@@ -16,9 +16,8 @@ const Nav = () => {
 
   const handelImgClick = () => {
     console.log(session.user);
-    router.push(`profile/${session.user.id}`);
-    
-
+    router.push(`/profile/${session.user.id}`);
+    // router.push('/test');
   }
 
   useEffect(() => {
