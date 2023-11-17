@@ -12,8 +12,8 @@ const CreatePromptPage = () => {
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({prompt: "", tag:""});
  
-    const createPromt= async (e) => {
-        console.log('create the new prompt event', e);
+    const createPrompt= async (e) => {
+        console.log('create the new prompt event FrontEnd', e);
         e.preventDefault();
         setSubmitting(true);
         try {
@@ -25,6 +25,8 @@ const CreatePromptPage = () => {
                     userId: session?.user.id
                 })
             }) ;
+
+            console.log("response from Backend ", response);
 
             if(response.ok){
                 router.push('/');
@@ -41,7 +43,7 @@ const CreatePromptPage = () => {
   return (
     <Form
     type = 'Create'
-    handleSubmit = {createPromt}
+    handleSubmit = {createPrompt}
     post = {post}
     setPost = {setPost}
     submitting = {submitting}
