@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const PromptCard = ({ post, handelClickTag }) => {
+const PromptCard = ({ post, handelClickTag, handelEditPrompt, handelDeletePrompt }) => {
+
+
   const [copied, setCopied] = useState("");
   const router = useRouter();
 
@@ -15,7 +17,7 @@ const PromptCard = ({ post, handelClickTag }) => {
   }
 
   const handelImgClick = () => {
-    router.push(`/profile/${post.creator._id}`);
+    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   }
 
   return (
@@ -57,6 +59,10 @@ const PromptCard = ({ post, handelClickTag }) => {
       onClick={() => {handelClickTag && handelClickTag(post.tag)}}>
         {post.tag}
       </p>
+      <div className="editBtns">
+        {handelEditPrompt && <button onClick={handelEditPrompt}>Edit</button>}
+        {handelDeletePrompt && <button onClick={handelDeletePrompt}>Delete</button>}
+      </div>
     </div>
   );
 };
