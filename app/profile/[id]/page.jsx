@@ -13,7 +13,6 @@ const page = () => {
   const fetchPostsById = async (id) => {
     const response = await fetch(`/api/prompt/userId/${id}`);
     const data = await response.json();
-    console.log("Profile response from backend", data);
     setUser(data[0].creator);
     setPrompts(data);
   }
