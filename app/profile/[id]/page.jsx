@@ -15,7 +15,6 @@ const page = ({ params }) => {
   const fetchPostsById = async (id) => {
     const response = await fetch(`/api/prompt/userId/${id}`);
     const data = await response.json();
-    console.log("Profile response from backend", data);
     setUsername(searchParams.get("name"));
     setPrompts(data);
   }
