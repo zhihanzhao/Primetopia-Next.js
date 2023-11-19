@@ -1,7 +1,7 @@
 "use client";
 import Profile from '@components/Profile'
 import { useSession } from 'next-auth/react'
-import { useParams,useSearchParams } from 'next/navigation';
+import { useParams,useSearchParams,useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const page = ({ params }) => {
@@ -10,23 +10,26 @@ const page = ({ params }) => {
   const  param = useParams();
   const searchParams = useSearchParams();
   const [username, setUsername] = useState();
+  const router = useRouter();
 
   const fetchPostsById = async (id) => {
     const response = await fetch(`/api/prompt/userId/${id}`);
     const data = await response.json();
     console.log("Profile response from backend", data);
-    setUsername(searchParams.get(name));
+    setUsername(searchParams.get("name"));
     setPrompts(data);
   }
 
   const handelEditPrompt = (post) => {
     console.log("Edit", post._id);
+    router.push(`/update-prompt/${post._id}`);
+
   }
 
   const handelDeletePrompt = async (post) => {
     console.log("Delete", post._id);
     //ask the action 
-    const hasConfirmed =  confirm(
+    const hasConfirmed = confirm(
         "Are you sure you want to delete this prompt?"
       );
 

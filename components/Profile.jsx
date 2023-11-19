@@ -2,6 +2,7 @@ import React from 'react'
 import PromptCard from './PromptCard'
 
 const Profile = ({name, desc , data, handelEditPrompt,handelDeletePrompt}) => {
+
   return (
     <section className='w-full'>
     <h1 className='head_text text-left'>
@@ -14,8 +15,8 @@ const Profile = ({name, desc , data, handelEditPrompt,handelDeletePrompt}) => {
         <PromptCard
           key={post._id}
           post={post}
-          handelEditPrompt={ () => handelEditPrompt && handelEditPrompt(post)}
-          handelDeletePrompt={() => handelDeletePrompt && handelDeletePrompt(post)}
+          handelEditPrompt={handelEditPrompt &&( () => handelEditPrompt && handelEditPrompt(post))}
+          handelDeletePrompt={handelDeletePrompt && (() => handelDeletePrompt && handelDeletePrompt(post))}
         />
       ))}
     </div>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const PromptCard = ({ post, handelClickTag, handelEditPrompt, handelDeletePrompt }) => {
+
+
   const [copied, setCopied] = useState("");
   const router = useRouter();
 
