@@ -59,9 +59,9 @@ const PromptCard = ({ post, handelClickTag, handelEditPrompt, handelDeletePrompt
       onClick={() => {handelClickTag && handelClickTag(post.tag)}}>
         {post.tag}
       </p>
-      <div className="editBtns">
-        {handelEditPrompt && <button onClick={handelEditPrompt}>Edit</button>}
-        {handelDeletePrompt && <button onClick={handelDeletePrompt}>Delete</button>}
+      <div className="editBtns mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
+        {handelEditPrompt && <button className='font-inter text-sm green_gradient cursor-pointer' onClick={handelEditPrompt}>Edit</button>}
+        {handelDeletePrompt && <button className='font-inter text-sm orange_gradient cursor-pointer' onClick={handelDeletePrompt}>Delete</button>}
       </div>
     </div>
   );
